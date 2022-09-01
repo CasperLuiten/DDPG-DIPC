@@ -46,7 +46,7 @@ criticNetwork = connectLayers(criticNetwork,'CriticActionFC1','add/in2');
 criticNetwork = dlnetwork(criticNetwork);
 
 % Create critic
-criticOpts = rlOptimizerOptions('LearnRate', 0.01,'GradientThreshold', inf);
+criticOpts = rlOptimizerOptions('LearnRate', 0.001,'GradientThreshold', inf);
 critic = rlQValueFunction(criticNetwork,observationInfo,actionInfo,'ObservationInputNames','observation','ActionInputNames','action');
 
 % Actor network
@@ -62,7 +62,7 @@ actorNetwork = [
 actorNetwork = dlnetwork(actorNetwork);
 
 % Create actor
-actorOpts = rlOptimizerOptions('LearnRate', 0.01,'GradientThreshold',inf);
+actorOpts = rlOptimizerOptions('LearnRate', 0.001,'GradientThreshold',inf);
 actor = rlContinuousDeterministicActor(actorNetwork,observationInfo,actionInfo);
 
 %% Agent
@@ -79,7 +79,7 @@ agentOpts = rlDDPGAgentOptions(...
     'MiniBatchSize',128);
 agentOpts.NoiseOptions.StandardDeviation = 0.3;
 agentOpts.NoiseOptions.StandardDeviationDecayRate = 0;
-agentOpts.TargetSmoothFactor = 1e-5;
+agentOpts.TargetSmoothFactor = 1e-3;
 agentOpts.ResetExperienceBufferBeforeTraining = not(USE_PRE_TRAINED_MODEL);
 
 % Create agent
