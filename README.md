@@ -5,10 +5,13 @@ The report is included in the repository, see the .pdf file.
 The code consists of two main scripts:
 
 DDPG_DIPC_Training.m     
-      Used to train agent
+Used to train agent
       
 DDPG_DIPC_Simulation.m
-      Used to simulate results using trained agent
+Used to simulate results using trained agent
       
 Additionally, the "DIPC.m"  file is used to create the learning environment.
 Two videos are included as well. In the report a description for these videos is provided.
+
+IMPORTANT: The code uses the Reinforcement Learning Toolbox and Deep Learning Toolbox for MATLAB. These toolboxes must be installed before
+the code can be used.
